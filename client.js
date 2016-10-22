@@ -169,7 +169,7 @@ var Client = IgeClass.extend({
 
                         // Send the server a request (gets a callback when the server responds!)
                         //var map;
-                        /*ige.network.request('loadMap', {}, function (commandName, data) {
+                        ige.network.request('loadMap', {}, function (commandName, data) {
                             console.log('Map loaded on client');
                             console.log('Request response received from server via callback with data:', data);
                             //for (var i=0;i<data.map.length)
@@ -181,7 +181,7 @@ var Client = IgeClass.extend({
                                 //new IgeTi
                             }
                             //map = data;
-                        });*/
+                        });
                     });
 				}
 			});
