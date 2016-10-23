@@ -35,7 +35,7 @@ var Server = IgeClass.extend({
 								console.log('Error');
 							}
 						});
-						ige.mongo.insert('map', {id: 1, tileid:1, x:firstTilePosX, y:firstTilePosY}, function (err, results){
+						ige.mongo.insert('map', {id: 1, tileid:98, x:firstTilePosX, y:firstTilePosY}, function (err, results){
 							if (!err) {
 								console.log('Insert successful');
 								console.log(results);
@@ -44,7 +44,7 @@ var Server = IgeClass.extend({
 								console.log('Error');
 							}
 						});
-						ige.mongo.insert('map', {id: 2, tileid:3, x:firstTilePosX+tileSizeX, y:firstTilePosY}, function (err, results){
+						ige.mongo.insert('map', {id: 2, tileid:100, x:firstTilePosX+tileSizeX, y:firstTilePosY}, function (err, results){
 							if (!err) {
 								console.log('Insert successful');
 								console.log(results);
@@ -53,7 +53,7 @@ var Server = IgeClass.extend({
 								console.log('Error');
 							}
 						});
-						ige.mongo.insert('map', {id: 3, tileid:2, x:firstTilePosX+2*tileSizeX, y:firstTilePosY}, function (err, results){
+						ige.mongo.insert('map', {id: 3, tileid:99, x:firstTilePosX+2*tileSizeX, y:firstTilePosY}, function (err, results){
 							if (!err) {
 								console.log('Insert successful');
 								console.log(results);

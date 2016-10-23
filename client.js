@@ -20,6 +20,9 @@ var Client = IgeClass.extend({
 		var self = this,
             gameTexture = [];
 
+        self.posX = 100;
+        self.posY = 100;
+
 		this.obj = [];
 
 		gameTexture[0] = new IgeTexture('assets/textures/sprites/fairy.png');
@@ -55,8 +58,8 @@ var Client = IgeClass.extend({
                             .mount(ige.$('baseScene'));
 
                         ige.ui.style('.myStyle', {
-                            'width': '90%',
-                            'height': '90%',
+                            'width': 1600,
+                            'height': 800,
                             'borderColor': '#ffffff',
                             'borderRadius' : 15,
                             'borderWidth' : 1,
@@ -97,38 +100,51 @@ var Client = IgeClass.extend({
                             .drawBounds(false)
                             .mount(uiScene);
 
-                        var mapXSize = 4;
-                        var mapYSize = 3;
+                        var mapXSize = 15;
+                        var mapYSize = 15;
 
                         //Create the tile map
                         self.textureMap1 = new IgeTextureMap()
                             .id('tileMap1')
-                            .depth(0)
-                            .tileWidth(128)
-                            .tileHeight(128)
+                            .depth(1)
+                            .tileWidth(50)
+                            .tileHeight(50)
                             .gridSize(mapXSize, mapYSize)
                             .drawGrid(true)
                             .drawMouse(true)
-                            .translateTo(-400, -200, 0)
                             .gridColor("#ff6600")
                             //.gridColor("#009933")
                             //.highlightOccupied(true)
                             //.drawBounds(false)
-                            .mouseUp(function (event, evc, data) {
-                                console.log(this.id(), this.mouseToTile(), arguments);
-                            })
+                            //.mouseUp(function (event, evc, data) {
+                            //    console.log(this.id(), this.mouseToTile(), arguments);
+                            //})
                             .mount(uiScene);
 
+                        self.textureMap1
+                            .translateTo(-450, -370, 0);
+
+                        var tileCell;
+                        var licznik = 0;
                         for (var i=0;i<mapXSize;i++){
                             for (var j=0;j<mapYSize;j++){
+                                //tileCell = Math.round(Math.random() * 60) + 1;
+                                if (licznik < 5){
+                                    licznik++;
+                                }
+                                {
+                                    tileCell = 98 + Math.round(Math.random() * 4);
+                                }
+
+                                console.log(tileCell);
                                 new IgeEntity()
                                     //.id('entity1')
-                                    .depth(1)
+                                    .depth(2)
                                     // Set the entity texture to the cell sheet we created earlier
                                     .texture(gameTexture[2])
                                     .mount(self.textureMap1)
                                     // Set the cell to 1... this is the FIRST cell in the sheet
-                                    .cell(Math.round(Math.random() * 60))
+                                    .cell(tileCell)
                                     .translateToTile(i, j, 0)
                                     .widthByTile(1)
                                     .heightByTile(1)
@@ -136,13 +152,14 @@ var Client = IgeClass.extend({
                                 // Set the entity's width and height to match the cell we are using
                                 //.dimensionsFromCell()
                                 //.translateTo(0, 0, 0);
+                             //   console.log(i, j);
                             }
                         }
 
                         // Create an entity
                         new IgeEntity()
-                            .id('fairy1')
-                            .depth(2)
+                            .id('barrack')
+                            .depth(3)
                             .texture(gameTexture[3])
                             .mount(self.textureMap1)
                             .translateToTile(1, 1, 0)
@@ -152,11 +169,14 @@ var Client = IgeClass.extend({
                             .drawBounds(false)
                             .tileWidth(1)
                             .tileHeight(1)
-                            .occupyTile();
+                            .occupyTile()
+                            .mouseUp(function (event, evc, data) {
+                                console.log('You clicked a barrack.');
+                            });;
 
                         new IgeEntity()
-                            .id('fairy2')
-                            .depth(2)
+                            .id('base')
+                            .depth(3)
                             .texture(gameTexture[4])
                             .mount(self.textureMap1)
                             .translateToTile(2, 2, 0)
@@ -165,7 +185,16 @@ var Client = IgeClass.extend({
                             .drawBounds(false)
                             .tileWidth(1)
                             .tileHeight(1)
-                            .occupyTile();
+                            .occupyTile()
+                            .mouseUp(function (event, evc, data) {
+                                console.log('You clicked a base.');
+                                console.log(self.posX, self.posY);
+                            });
+
+                        //self.textureMap2 = self.textureMap1.clone();
+
+                        //self.textureMap2
+                        //.translateTo(0, -200, 0);
 
                         // Send the server a request (gets a callback when the server responds!)
                         //var map;
