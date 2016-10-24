@@ -1,0 +1,24 @@
+{
+  "name": "fantasywebgame",
+  "version": "1.0.0",
+  "description": "## MONGODB",
+  "main": "index.js",
+  "private": "true",
+  "dependencies": {
+    "node-arguments": "^0.0.1",
+    "mongodb": "^2.2.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ige/server/ige.js -g .",
+    "postinstall": "cd ./ige/server && npm install"
+  },
+  "keywords": [],
+  "author": "MrZacky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blisek/fantasywebgame/issues"
+  },
+  "homepage": "https://github.com/blisek/fantasywebgame#readme"
+}
