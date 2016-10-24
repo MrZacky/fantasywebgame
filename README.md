@@ -17,6 +17,13 @@
 1. Pobieramy nodejs (https://nodejs.org/en/), wybieramy stable version (recommended for most users)
 2. Instalujemy nodejs
 
+## NPM
+
+Służy do ściągnięcia wymaganych zależności i zainstalowania ich.
+
+1. W głównym katalogu otworzyć terminal;
+2. Wywołać `npm install` i czekać na zakończenie.
+
 ## PHPStorm
 
 1. Pobieramy phpStorm
@@ -55,3 +62,7 @@ Uruchamianie projektu
 3. W JavaScript file wpisujemy 'ige\server\ige.js' (To ścieżka do naszego isogenic game engine)
 4. W Application parameters wpisujemy '-g .' (Parametr -g to ścieżka do gry, . oznacza obecną lokalizację)
 
+## Alternatywny sposób uruchomienia serwera
+
+1. Otworzyć terminal w głównym katalogu;
+2. Wywołać w nim `npm start`.
